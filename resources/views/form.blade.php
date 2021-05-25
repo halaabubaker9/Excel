@@ -12,6 +12,13 @@
     <section class="form-upload p-5 m-5 ">
         <div class="container">
             <div class="col-md-6 offset-md-3">
+                <!-- Alert message (start) -->
+        @if(Session::has('message'))
+        <div class="alert {{ Session::get('alert-class') }}">
+            {{ Session::get('message') }}
+        </div>
+        @endif 
+        <!-- Alert message (end) -->
                 <div class="card">
                     <div class="card-header">
                         Upload Csv File
@@ -21,6 +28,9 @@
                         @csrf
                         <div class="form-group">
                             <input type="file" name="file" class="form-control p-1">
+                            @if ($errors->has('file'))
+                <span class="errormsg text-danger">{{ $errors->first('file') }}</span>
+                @endif
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>
                     </form>
