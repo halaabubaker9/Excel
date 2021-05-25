@@ -29,8 +29,8 @@
                         <div class="form-group">
                             <input type="file" name="file" class="form-control p-1">
                             @if ($errors->has('file'))
-                <span class="errormsg text-danger">{{ $errors->first('file') }}</span>
-                @endif
+                            <span class="errormsg text-danger">{{ $errors->first('file') }}</span>
+                            @endif
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>
                     </form>
